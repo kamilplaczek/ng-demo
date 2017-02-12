@@ -1,0 +1,104 @@
+.filters {
+  text-align: center;
+  margin: 10px;
+}
+
+.select-wrapper {
+    display: inline-block;
+    height: 30px;
+    text-align: center;
+    background-color: #eaeced;
+    border-radius: 4px;
+    padding: 6px;
+    margin: 0 5px;
+}
+
+select {
+    width: 150px;
+}
+
+.button {
+    margin: 0 5px;
+    display: inline-block;
+    background: -webkit-linear-gradient(#f2f2f2, #c4c4c4);
+    background: -o-linear-gradient(#f2f2f2, #c4c4c4);
+    background: linear-gradient(#f2f2f2, #c4c4c4);
+    border: 1px solid transparent;
+    padding: 6px 12px;
+    border-radius: 4px;
+    width: 70px;
+    height: 30px;
+    font-size: 12px;
+    font-weight: bold;
+    &.submit {
+        background: linear-gradient(to bottom, #6ba1f3, #2077f0);
+        color: #fff;
+    }
+}
+
+input {
+    max-width: 370px;
+    display: inine-block;
+    height: 30px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 0 5px;
+}
+
+table {
+    box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.12);
+    border: solid 1px #ccc;
+    border-collapse: separate !important;
+    border-spacing:0;
+    width: 100%;
+    border-radius: 4px;
+    thead tr th {
+        height: 60px;
+        border-bottom: solid 1px #cccfd1;
+        text-align: center;
+        background: -webkit-linear-gradient(#ecedee, #e8e9ea);
+        background: -o-linear-gradient(#ecedee, #e8e9ea);
+        background: linear-gradient(#ecedee, #e8e9ea);
+    }
+    tr {
+      height: 50px;
+      td {
+        text-align: center;
+        border-bottom: solid 1px #e0e0e0;
+        border-right: solid 1px #e0e0e0;
+      }
+      td:last-child {
+        border-right: none;
+      }
+      th:first-child, td:first-child {
+        text-align: left;
+        padding-left: 20px;
+      }
+    }
+
+  tr:nth-child(even) {
+    background: linear-gradient(to bottom, #f8f8f8, #f6f6f6);
+  }
+
+  th:first-child {
+    border-radius: 4px 0 0 0;
+  }
+
+  th:last-child {
+    border-radius: 0 4px 0 0;
+  }
+
+  tr:last-child td:first-child {
+    border-radius: 0 0 0 4px;
+  }
+
+  tr:last-child td:last-child {
+    border-radius: 0 0 4px 0;
+  }
+}

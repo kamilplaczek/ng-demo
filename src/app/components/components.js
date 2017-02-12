@@ -1,10 +1,8 @@
 import angular from 'angular';
-import Home from './home/home';
+import Payments from './payments/payments';
 
 let componentModule = angular.module('app.components', [
-  Home
-])
-
-  .name;
+  Payments
+]).name;
 
 export default componentModule;

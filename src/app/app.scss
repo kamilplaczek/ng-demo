@@ -1,7 +1,45 @@
-@import "common/common";
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+@import "node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@import "common/variables";
+@import "common/mixins";
 
-.app {
-  height: 100%;
-  background-color: $lightBgColor;
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url('../public/fonts/SourceSansPro-Regular.ttf')
 }
 
+@font-face {
+  font-family: 'Source Sans Pro Light';
+  src: url('../public/fonts/SourceSansPro-Light.ttf')
+}
+
+body {
+  background-image: url('../public/images/bg.png');
+  font-size: 12px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.42857;
+    color: #333333;
+}
+
+header {
+  font-family: 'Source Sans Pro', sans-serif;
+  text-align: center;
+  h1 {
+    font-family: 'Source Sans Pro Light', sans-serif;
+    color: #2288b7;
+    font-size: 60px;
+    margin: 0px 0px 10px 0px;
+  }
+  p {
+    font-size: 17px;
+  }
+}
+
+.site-container {
+  max-width: 980px;
+  margin: 70px auto;
+  background-color: #fdfdfd;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0px 0px 0px 8px rgba(0,0,0,0.05); 
+}
