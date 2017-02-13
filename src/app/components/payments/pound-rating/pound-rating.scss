@@ -1,0 +1,10 @@
+.pound-rating {
+    margin: 0 2px;
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    background: url('../../../../public/images/pound-rating-gray.png') center center no-repeat;
+    &.active {
+        background: url('../../../../public/images/pound-rating-blue.png') center center no-repeat;
+    }
+}

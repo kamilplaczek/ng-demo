@@ -1,57 +1,57 @@
 .filters {
   text-align: center;
   margin: 10px;
+  .button {
+      text-decoration: none;
+      margin: 0 5px;
+      display: inline-block;
+      background: -webkit-linear-gradient(#f2f2f2, #c4c4c4);
+      background: -o-linear-gradient(#f2f2f2, #c4c4c4);
+      background: linear-gradient(#f2f2f2, #c4c4c4);
+      border: 1px solid transparent;
+      padding: 6px 12px;
+      border-radius: 4px;
+      width: 70px;
+      height: 30px;
+      font-size: 12px;
+      font-weight: bold;
+      &.submit {
+          background: linear-gradient(to bottom, #6ba1f3, #2077f0);
+          color: #fff;
+      }
+  }
+  
+  .select-wrapper {
+      display: inline-block;
+      height: 30px;
+      text-align: center;
+      background-color: #eaeced;
+      border-radius: 4px;
+      padding: 6px;
+      margin: 0 5px;
+  }
+
+  select {
+      width: 150px;
+  }
+
+  input {
+      max-width: 370px;
+      display: inine-block;
+      height: 30px;
+      padding: 6px 12px;
+      font-size: 14px;
+      line-height: 1.42857143;
+      color: #555;
+      background-color: #fff;
+      background-image: none;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin: 0 5px;
+  }
 }
 
-.select-wrapper {
-    display: inline-block;
-    height: 30px;
-    text-align: center;
-    background-color: #eaeced;
-    border-radius: 4px;
-    padding: 6px;
-    margin: 0 5px;
-}
-
-select {
-    width: 150px;
-}
-
-.button {
-    margin: 0 5px;
-    display: inline-block;
-    background: -webkit-linear-gradient(#f2f2f2, #c4c4c4);
-    background: -o-linear-gradient(#f2f2f2, #c4c4c4);
-    background: linear-gradient(#f2f2f2, #c4c4c4);
-    border: 1px solid transparent;
-    padding: 6px 12px;
-    border-radius: 4px;
-    width: 70px;
-    height: 30px;
-    font-size: 12px;
-    font-weight: bold;
-    &.submit {
-        background: linear-gradient(to bottom, #6ba1f3, #2077f0);
-        color: #fff;
-    }
-}
-
-input {
-    max-width: 370px;
-    display: inine-block;
-    height: 30px;
-    padding: 6px 12px;
-    font-size: 14px;
-    line-height: 1.42857143;
-    color: #555;
-    background-color: #fff;
-    background-image: none;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin: 0 5px;
-}
-
-table {
+.payments-table {
     box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.12);
     border: solid 1px #ccc;
     border-collapse: separate !important;
@@ -101,4 +101,75 @@ table {
   tr:last-child td:last-child {
     border-radius: 0 0 4px 0;
   }
+    
+  .pound-rating-column {
+    width: 180px;
+  }
+
+  .reference-column, .value-column {
+    width: 100px;
+  }
+}
+
+/* 
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+@media 
+only screen and (max-width: 620px) and (max-device-width: 620px)  {
+.payments-table {
+  display: block; 
+/* Force table to not be like tables anymore */
+	thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr { 
+    border: 1px solid #ccc;
+    height: auto !important;
+    
+   }
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50% !important; 
+    text-align: center !important;
+    min-height: 30px;
+    line-height: 30px;
+    pound-rating {
+      padding-top: 5px;
+    }
+	}
+	
+	td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+	
+	/*
+	Label the data
+	*/
+	td:nth-of-type(1):before { content: "Supplier"; }
+	td:nth-of-type(2):before { content: "Pound rating"; }
+	td:nth-of-type(3):before { content: "Reference"; }
+	td:nth-of-type(4):before { content: "Value"; }
+}
+	
 }

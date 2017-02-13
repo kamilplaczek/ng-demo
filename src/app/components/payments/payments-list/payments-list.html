@@ -1,56 +1,33 @@
 <div class="filters">
-    <input class="filter-input" placeholder="Search suppliers" type="text" />
+    <input ng-model="$ctrl.query" class="filter-input" placeholder="Search suppliers" type="text" />
     <div class="select-wrapper">
-        <select>
-        <option>Test 1</option>
-        <option>Test 2</option>
+        <select ng-model="$ctrl.selectedRating" ng-options="rating for rating in $ctrl.poundRatings">
+        <option value="">Select pound rating</option>
       </select>
     </div>
-    <button class="button">Reset</button>
-    <button class="button submit">Search</button>
+    <a href="#" ng-click="$ctrl.onReset()" class="button">Reset</a>
+    <a href="#" ng-click="$ctrl.onSearch()" class="button submit">Search</a>
 </div>
 <div>
-    <table>
+    <table class="payments-table">
         <thead>
             <tr>
                 <th>Supplier</th>
-                <th>Pound rating</th>
-                <th>Reference</th>
-                <th>Value</th>
+                <th class="pound-rating-column">Pound rating</th>
+                <th class="reference-column">Reference</th>
+                <th class="value-column">Value</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Supplier name</td>
-                <td>xxx</td>
-                <td>123456</td>
-                <td>123456</td>
-            </tr>
-            <tr>
-                <td>Supplier name</td>
-                <td>xxx</td>
-                <td>123456</td>
-                <td>123456</td>
-            </tr>
-            <tr>
-                <td>Supplier name</td>
-                <td>xxx</td>
-                <td>123456</td>
-                <td>123456</td>
-            </tr>
-            <tr>
-                <td>Supplier name</td>
-                <td>xxx</td>
-                <td>123456</td>
-                <td>123456</td>
-            </tr>
-            <tr>
-                <td>Supplier name</td>
-                <td>xxx</td>
-                <td>123456</td>
-                <td>123456</td>
+            <tr ng-repeat="p in $ctrl.payments">
+                <td>{{ p.payment_supplier }}</td>
+                <td>
+                    <pound-rating rating="p.payment_cost_rating"></pound-rating>
+                </td>
+                <td>{{ p.payment_ref }}</td>
+                <td>{{ p.payment_amount | currency:"£":0 }}</td>
             </tr>
         </tbody>
     </table>
 </div>
-<pagination></pagination>
+<pagination on-page-change="$ctrl.onPageChange($page)" current="$ctrl.currentPage" total="$ctrl.totalPagesCount"></pagination>

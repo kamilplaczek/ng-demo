@@ -1,8 +1,5 @@
   <div class="pagination">
-    <a href="#" class="prev"></a>
-    <a href="#" class="page-link">1</a>
-    <a href="#" class="page-link">2</a>
-    <a href="#" class="page-link">3</a>
-    <a href="#" class="page-link">4</a>
-    <a href="#" class="next"></a>
+    <a ng-click="$ctrl.onPrevClick()" href="#" class="prev"></a>
+    <a ng-click="$ctrl.onPageChange({ $page: p })" href="#" ng-repeat="p in $ctrl.pages" class="page-link" ng-class="{ 'active': p === $ctrl.current }">{{ p }}</a>
+    <a ng-click="$ctrl.onNextClick()" href="#" class="next"></a>
   </div>

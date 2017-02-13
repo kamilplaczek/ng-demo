@@ -4,7 +4,7 @@ import './pagination.scss';
 
 let paginationComponent = {
   restrict: 'E',
-  bindings: {},
+  bindings: { onPageChange: '&', current: '<', total: '<' },
   controller,
   template
 };
