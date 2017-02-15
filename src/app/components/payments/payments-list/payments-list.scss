@@ -1,105 +1,101 @@
+@import '../../../common/mixins';
+@import '../../../common/variables';
+
 .filters {
+  display: flex;
+  flex-wrap: wrap;
   text-align: center;
-  margin: 10px;
+  justify-content: center;
+  margin: 15px 0;
   .button {
-      text-decoration: none;
-      margin: 0 5px;
-      display: inline-block;
-      background: -webkit-linear-gradient(#f2f2f2, #c4c4c4);
-      background: -o-linear-gradient(#f2f2f2, #c4c4c4);
-      background: linear-gradient(#f2f2f2, #c4c4c4);
-      border: 1px solid transparent;
-      padding: 6px 12px;
-      border-radius: 4px;
-      width: 70px;
-      height: 30px;
-      font-size: 12px;
-      font-weight: bold;
+      @include gradient-btn($gray-dark-2, $gray-light-1, $gray-light-3);
       &.submit {
-          background: linear-gradient(to bottom, #6ba1f3, #2077f0);
-          color: #fff;
+          @include linear-gradient($brand-blue-1, $brand-blue-2);
+          color: $white-base;
       }
   }
   
   .select-wrapper {
+      box-sizing: border-box;
       display: inline-block;
       height: 30px;
       text-align: center;
       background-color: #eaeced;
       border-radius: 4px;
       padding: 6px;
-      margin: 0 5px;
-  }
-
-  select {
-      width: 150px;
+      margin: 0 4px;
+      select {
+        width: 150px;
+      }
   }
 
   input {
-      max-width: 370px;
+      box-sizing: border-box;
+      width: 370px;
       display: inine-block;
       height: 30px;
       padding: 6px 12px;
       font-size: 14px;
       line-height: 1.42857143;
-      color: #555;
-      background-color: #fff;
+      color: $gray-dark-1;
+      background-color: $white-base;
       background-image: none;
-      border: 1px solid #ccc;
+      border: 1px solid $gray-light-2;
       border-radius: 4px;
       margin: 0 5px;
   }
 }
 
 .payments-table {
-    box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.12);
+    $border-radius: 4px;
+    $cell-border: solid 1px #e0e0e0;
+    @include box-shadow(1px, 1px, 1px, 0px, rgba(0,0,0,0.12));
     border: solid 1px #ccc;
     border-collapse: separate !important;
     border-spacing:0;
     width: 100%;
     border-radius: 4px;
+    margin: 10px 0;
     thead tr th {
         height: 60px;
         border-bottom: solid 1px #cccfd1;
         text-align: center;
-        background: -webkit-linear-gradient(#ecedee, #e8e9ea);
-        background: -o-linear-gradient(#ecedee, #e8e9ea);
-        background: linear-gradient(#ecedee, #e8e9ea);
+        @include linear-gradient(#ecedee, #e8e9ea);
     }
     tr {
       height: 50px;
       td {
         text-align: center;
-        border-bottom: solid 1px #e0e0e0;
-        border-right: solid 1px #e0e0e0;
+        border-bottom:  $cell-border;
+        border-right:  $cell-border
       }
       td:last-child {
         border-right: none;
       }
       th:first-child, td:first-child {
         text-align: left;
-        padding-left: 20px;
+        padding-left: 30px;
       }
     }
 
   tr:nth-child(even) {
-    background: linear-gradient(to bottom, #f8f8f8, #f6f6f6);
+    @include linear-gradient(#f8f8f8, #f6f6f6);
   }
 
   th:first-child {
-    border-radius: 4px 0 0 0;
+    border-radius: $border-radius 0 0 0;
   }
 
   th:last-child {
-    border-radius: 0 4px 0 0;
+    border-radius: 0 $border-radius 0 0;
   }
 
   tr:last-child td:first-child {
-    border-radius: 0 0 0 4px;
+    border-radius: 0 0 0 $border-radius;
   }
 
   tr:last-child td:last-child {
-    border-radius: 0 0 4px 0;
+    border-radius: 0 0 $border-radius 0;
   }
     
   .pound-rating-column {
@@ -111,65 +107,58 @@
   }
 }
 
-/* 
-Max width before this PARTICULAR table gets nasty
-This query will take effect for any screen smaller than 760px
-and also iPads specifically.
-*/
+
+// no more tables concept based on https://css-tricks.com/responsive-data-tables/
 @media 
-only screen and (max-width: 620px) and (max-device-width: 620px)  {
-.payments-table {
-  display: block; 
-/* Force table to not be like tables anymore */
-	thead, tbody, th, td, tr { 
-		display: block; 
-	}
-	
-	/* Hide table headers (but not display: none;, for accessibility) */
-	thead tr { 
-		position: absolute;
-		top: -9999px;
-		left: -9999px;
-	}
-	
-	tr { 
-    border: 1px solid #ccc;
-    height: auto !important;
-    
-   }
-	
-	td { 
-		/* Behave  like a "row" */
-		border: none;
-		border-bottom: 1px solid #eee; 
-		position: relative;
-		padding-left: 50% !important; 
-    text-align: center !important;
-    min-height: 30px;
-    line-height: 30px;
-    pound-rating {
-      padding-top: 5px;
+only screen and (max-width: $media-screen-sm)  {
+  .filters {
+    input, select, .select-wrapper {
+      width: 100%;
     }
-	}
+  }
+  .payments-table {
+    display: block; 
+    thead, tbody, th, td, tr { 
+      display: block; 
+    }
+    
+    thead tr { 
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+    
+    tr { 
+      border: 1px solid $gray-light-2;
+      height: auto !important;
+    }
+    
+    td { 
+      border: none;
+      border-bottom: 1px solid $gray-light-1; 
+      position: relative;
+      padding-left: 50% !important; 
+      text-align: center !important;
+      min-height: 30px;
+      line-height: 30px;
+      pound-rating {
+        padding-top: 5px;
+      }
+    }
+    
+    td:before { 
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      width: 45%; 
+      padding-right: 10px; 
+      white-space: nowrap;
+    }
 	
-	td:before { 
-		/* Now like a table header */
-		position: absolute;
-		/* Top/left values mimic padding */
-		top: 6px;
-		left: 6px;
-		width: 45%; 
-		padding-right: 10px; 
-		white-space: nowrap;
-	}
-	
-	/*
-	Label the data
-	*/
-	td:nth-of-type(1):before { content: "Supplier"; }
-	td:nth-of-type(2):before { content: "Pound rating"; }
-	td:nth-of-type(3):before { content: "Reference"; }
-	td:nth-of-type(4):before { content: "Value"; }
-}
+    td:nth-of-type(1):before { content: "Supplier"; }
+    td:nth-of-type(2):before { content: "Pound rating"; }
+    td:nth-of-type(3):before { content: "Reference"; }
+    td:nth-of-type(4):before { content: "Value"; }
+  }
 	
 }

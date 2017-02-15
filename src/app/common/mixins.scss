@@ -1,0 +1,33 @@
+@mixin gradient-btn($color, $backgroundFrom, $backgroundTo) {
+      color: $color;
+      text-decoration: none;
+      margin: 5px 4px;
+      display: inline-block;
+      border-radius: 4px;
+      line-height: 30px;
+      width: 80px;
+      height: 30px;
+      box-sizing: border-box;
+      font-size: 12px;
+      font-weight: bold;
+      @include linear-gradient($backgroundFrom, $backgroundTo);
+}
+
+@mixin box-shadow($top, $left, $blur, $size, $color, $inset: false) {
+    @if $inset {
+        -webkit-box-shadow:inset $top $left $blur $size $color;
+        -moz-box-shadow:inset $top $left $blur $size $color;
+        box-shadow:inset $top $left $blur $size $color;
+    } @else {
+        -webkit-box-shadow: $top $left $blur $size $color;
+        -moz-box-shadow: $top $left $blur $size $color;
+        box-shadow: $top $left $blur $size $color;
+    }
+}
+
+@mixin linear-gradient($top, $bottom){
+    background: $top;
+    background: -moz-linear-gradient(top,  $top 0%, $bottom 100%);
+    background: -webkit-linear-gradient(top,  $top 0%,$bottom 100%); 
+    background: linear-gradient(to bottom,  $top 0%,$bottom 100%);
+}

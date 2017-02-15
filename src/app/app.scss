@@ -1,5 +1,4 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
-@import "node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 @import "common/variables";
 @import "common/mixins";
 
@@ -15,47 +14,56 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 body {
   background-image: url('../public/images/bg.png');
-  font-size: 12px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    line-height: 1.42857;
-    color: #333333;
+  font-size: $body-font-size;
+  font-family: $body-font-family;
+  line-height: $body-line-height;
+  color: $body-font-color;
+}
+
+h1, h2, h3 {
+    font-family: 'Source Sans Pro Light', sans-serif;
+    color: $brand-blue-3;
+    font-weight: normal;
+    margin: 0;
 }
 
 header {
   font-family: 'Source Sans Pro', sans-serif;
   text-align: center;
+  margin-bottom: 20px;
   h1 {
-    font-family: 'Source Sans Pro Light', sans-serif;
-    color: #2288b7;
     font-size: 60px;
-    margin: 0px 0px 10px 0px;
   }
   p {
     font-size: 17px;
+    margin: 0;
   }
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #e0e0e0;
 }
 
 .site-container {
   max-width: 980px;
   margin: 70px auto;
-  background-color: #fdfdfd;
+  background-color: $white-base;
   padding: 20px;
   border-radius: 4px;
-  box-shadow: 0px 0px 0px 8px rgba(0,0,0,0.05); 
+  @include box-shadow(0, 0, 0, 8px, rgba(0,0,0,0.05))
 }
 
 
 @media 
-only screen and (max-width: 980px),
-(min-device-width: 620px) and (max-device-width: 980px)  {
+only screen and (max-width: $media-screen-md) {
     .site-container {
       margin: 0 auto;
   }
 }
 
 @media 
-only screen and (max-width: 620px) and (max-device-width: 620px)  {
-
+only screen and (max-width: $media-screen-sm)  {
   header {
     h1 {
       font-size: 30px;

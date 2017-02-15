@@ -5,6 +5,8 @@ class PaymentsListController {
     query = null;
     currentPage = 1;
     totalPagesCount = 0;
+    isDetailsModalOpen = false;
+    selectedPayment = null;
 
     constructor(paymentsService) {
         this.name = 'paymentsList';
@@ -20,7 +22,9 @@ class PaymentsListController {
             .getPayments(this.query, this.currentPage - 1, this.selectedRating)
             .then(result => {
                 this.payments = result.data.payments;
-                this.totalPagesCount = result.data.pagination.total;
+                this.totalPagesCount = result.data.pagination ? result.data.pagination.total : 1;
+            }, err => {
+                this.totalPagesCount = 1;
             });
     }
 
@@ -37,6 +41,16 @@ class PaymentsListController {
     onReset() {
         this.query = null;
         this.selectedRating = null;
+    }
+
+    onPaymentClick(payment) {
+        this.selectedPayment = payment;
+        this.isDetailsModalOpen = true;
+    }
+
+    onDetailsClose() {
+        this.selectedPayment = null;
+        this.isDetailsModalOpen = false;
     }
 }
 

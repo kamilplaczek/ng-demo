@@ -5,8 +5,9 @@
         <option value="">Select pound rating</option>
       </select>
     </div>
-    <a href="#" ng-click="$ctrl.onReset()" class="button">Reset</a>
-    <a href="#" ng-click="$ctrl.onSearch()" class="button submit">Search</a>
+    <div class="actions"> <a href="#" ng-click="$ctrl.onReset()" class="button">Reset</a>
+        <a href="#" ng-click="$ctrl.onSearch()" class="button submit">Search</a></div>
+
 </div>
 <div>
     <table class="payments-table">
@@ -19,7 +20,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="p in $ctrl.payments">
+            <tr ng-click="$ctrl.onPaymentClick(p)" ng-repeat="p in $ctrl.payments">
                 <td>{{ p.payment_supplier }}</td>
                 <td>
                     <pound-rating rating="p.payment_cost_rating"></pound-rating>
@@ -31,3 +32,6 @@
     </table>
 </div>
 <pagination on-page-change="$ctrl.onPageChange($page)" current="$ctrl.currentPage" total="$ctrl.totalPagesCount"></pagination>
+<modal open="$ctrl.isDetailsModalOpen" on-close="$ctrl.onDetailsClose()">
+    <payment-details payment="$ctrl.selectedPayment"></payment-details>
+</modal>

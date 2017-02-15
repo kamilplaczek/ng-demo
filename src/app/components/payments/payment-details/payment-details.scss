@@ -1,0 +1,20 @@
+.row {
+    display: flex;
+    min-height: 30px;
+    flex-wrap: wrap;
+    margin: 5px auto;
+    align-items: center;
+    .label {
+        font-weight: bold;
+        width: 30%;
+        text-align: right;
+        margin-right: 10px;
+        &::after {
+            content: ':';
+        }
+    }
+
+    .value {
+        width: 60%;
+    }
+}

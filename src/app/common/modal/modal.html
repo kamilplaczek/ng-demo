@@ -1,0 +1,6 @@
+<div ng-if="$ctrl.open" class="modal" ng-class="{ 'open': $ctrl.open }">
+  <div click-off="$ctrl.onClose()" class="modal-content">
+    <span ng-click="$ctrl.onClose()" class="close">&times;</span>
+    <div ng-transclude></div>
+  </div>
+</div>

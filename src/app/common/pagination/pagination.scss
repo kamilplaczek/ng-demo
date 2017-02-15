@@ -1,26 +1,30 @@
+@import '../mixins';
+@import '../variables';
+
 .pagination {
+  margin: 20px 0;
   text-align: center;
   width: 100%;
   .page-link {
-    vertical-align: top;
-    width: 25px;
-    height:25px;
-    border: solid 1px #c6c6c6;
-    display: inline-block;
-    font-weight: bold;
-    background: linear-gradient(to bottom, #f9f9f9, #eaeaea);
-    border-radius: 4px;
-    padding: 4px 0;
-    margin: 1px;
-    color: #717171;
-    text-decoration: none;
-    box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.12);
-    &.active {
-        color: #f2f2f2;
-        background: #676767;
-        box-shadow: inset 0px 0px 4px 4px rgba(0,0,0,0.1);
+      vertical-align: top;
+      line-height: 25px;
+      width: 25px;
+      height: 25px;
+      border: solid 1px #c6c6c6;
+      display: inline-block;
+      font-weight: bold;
+      border-radius: 4px;
+      margin: 1px;
+      color: #717171;
+      text-decoration: none;
+      @include linear-gradient(#f9f9f9, #eaeaea);
+      @include box-shadow(1px, 1px, 1px, 0px, rgba(0,0,0,0.12));
+      &.active {
+          @include box-shadow(0px, 0px, 4px, 4px, rgba(0,0,0,0.1), true);
+          color: $gray-light-1;
+          background: #676767;
+      }
     }
-  }
     .prev {
       @extend .page-link;
       background: url('../../../public/images/page-prev.png') center center no-repeat, linear-gradient(to bottom, #f9f9f9, #eaeaea);
