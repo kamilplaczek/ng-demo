@@ -5,8 +5,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   devtool: 'source-map',
   entry:
-  ['babel-polyfill',
-    './src/app/app.js'] // our angular app
+  ['babel-polyfill', './src/app/app.js']
   ,
   output: {
     filename: '[name].bundle.js',
@@ -22,22 +21,17 @@ module.exports = {
       // copy those assets to output
       {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'file-loader?name=fonts/[name].[hash].[ext]?'
+        loader: 'file-loader?name=assets/[name].[hash].[ext]?'
       },
     ]
   },
   plugins: [
-    // Injects bundles in your index.html instead of wiring all manually.
-    // It also adds hash to all injected assets so we don't have problems
-    // with cache purging during deployment.
     new HtmlWebpackPlugin({
       template: './src/index.html',
       inject: 'body',
       hash: true
     }),
 
-    // Automatically move all modules defined outside of application directory to vendor bundle.
-    // If you are using more complicated project structure, consider to specify common chunks manually.
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       minChunks: function (module, count) {
@@ -47,8 +41,6 @@ module.exports = {
   ],
   devServer: {
     contentBase: './src/',
-    historyApiFallback: true,
-    //quiet: true,
-    //stats: 'minimal' // none (or false), errors-only, minimal, normal (or true) and verbose
+    historyApiFallback: true
   }
 };

@@ -1,11 +1,13 @@
 import angular from 'angular';
-import pagination from './pagination/pagination.component';
-import modal from './modal/modal.component';
-import clickOff from './click-off/click-off.directive';
+import PaginationComponent from './pagination/pagination.component';
+import ModalComponent from './modal/modal.component';
+import ClickOffDirective from './click-off/click-off.directive';
 
 let commonModule = angular.module('app.common', [
-]).component('pagination', pagination).component('modal', modal).directive('clickOff', clickOff)
-
-    .name;
+])
+.component('pagination', PaginationComponent)
+.component('modal', ModalComponent)
+.directive('clickOff', ClickOffDirective)
+.name;
 
 export default commonModule;

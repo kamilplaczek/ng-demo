@@ -7,9 +7,7 @@ let paymentsListModule = angular.module('paymentsList', [
 ])
     .config(($stateProvider, $urlRouterProvider) => {
         "ngInject";
-
         $urlRouterProvider.otherwise('/');
-
         $stateProvider
             .state('paymentsList', {
                 url: '/',
