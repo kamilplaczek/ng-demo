@@ -41,6 +41,25 @@
     }
 }
 
+.animate {
+    &.ng-enter, &.ng-leave {
+        $transition-time: 0.2s;
+        -webkit-transition: opacity $transition-time ease-in-out;
+        -moz-transition: opacity $transition-time ease-in-out;
+        -ms-transition: opacity $transition-time ease-in-out;
+        -o-transition: opacity $transition-time ease-in-out;
+        transition: opacity $transition-time ease-in-out;
+    }
+
+    &.ng-enter, &.ng-leave.animate.ng-leave-active {
+         opacity: 0;
+    }
+
+    &.ng-leave, &.ng-enter.animate.ng-enter-active {
+        opacity: 1;
+    }
+}
+
 @media 
 only screen and (max-width: $media-screen-md)  {
     .modal-content {
@@ -54,3 +73,4 @@ only screen and (max-width: $media-screen-sm)  {
         width: 90%;
     }
 }
+

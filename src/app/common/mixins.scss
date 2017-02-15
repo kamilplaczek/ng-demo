@@ -1,7 +1,7 @@
 @mixin gradient-btn($color, $backgroundFrom, $backgroundTo) {
       color: $color;
       text-decoration: none;
-      margin: 5px 4px;
+      margin: 0 4px;
       display: inline-block;
       border-radius: 4px;
       line-height: 30px;
