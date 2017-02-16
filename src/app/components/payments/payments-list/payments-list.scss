@@ -12,6 +12,7 @@
       &.submit {
           @include linear-gradient($brand-blue-1, $brand-blue-2);
           color: $white-base;
+          margin: 0;
       }
   }
   

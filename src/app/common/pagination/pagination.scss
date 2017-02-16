@@ -14,7 +14,7 @@
       display: inline-block;
       font-weight: bold;
       border-radius: 4px;
-      margin: 1px;
+      margin: 0 2px;
       color: #717171;
       text-decoration: none;
       @include linear-gradient(#f9f9f9, #eaeaea);
@@ -28,8 +28,10 @@
     .prev {
       @extend .page-link;
       background: url('../../../public/images/page-prev.png') center center no-repeat, linear-gradient(to bottom, #f9f9f9, #eaeaea);
+      margin-right: -1px;
     }
     .next {
+      margin-left: -1px;
       @extend .page-link;
       background: url('../../../public/images/page-next.png') center center no-repeat, linear-gradient(to bottom, #f9f9f9, #eaeaea);
     }
