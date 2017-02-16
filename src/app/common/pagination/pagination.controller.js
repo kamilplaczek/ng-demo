@@ -3,7 +3,6 @@ class PaginationController {
   pages = [];
 
   constructor() {
-    this.name = 'pagination';
   }
 
   $onChanges(changes) {

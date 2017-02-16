@@ -9,7 +9,6 @@ class PaymentsListController {
     selectedPayment = null;
 
     constructor(paymentsService) {
-        this.name = 'paymentsList';
         this.paymentsService = paymentsService;
         this.getPayments();
         for (let rating = 1; rating <= 5; rating++) {
